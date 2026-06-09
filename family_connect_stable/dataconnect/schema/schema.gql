@@ -1,0 +1,44 @@
+type Family @table {
+  name: String!
+  createdAt: Timestamp!
+  description: String
+  coverPhotoUrl: String
+}
+
+type User @table {
+  displayName: String!
+  email: String!
+  avatarUrl: String
+  phoneNumber: String
+  family: Family!
+}
+
+type Event @table {
+  title: String!
+  dateTime: Timestamp!
+  location: String!
+  description: String
+  hostUser: User
+  family: Family!
+}
+
+type RSVP @table {
+  status: String!
+  user: User!
+  event: Event!
+}
+
+type Photo @table {
+  imageUrl: String!
+  uploadedAt: Timestamp!
+  caption: String
+  family: Family!
+  event: Event
+}
+
+type Message @table {
+  content: String!
+  timestamp: Timestamp!
+  family: Family!
+  user: User!
+}

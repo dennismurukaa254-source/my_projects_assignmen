@@ -1,0 +1,22 @@
+mutation CreateEvent($data: Event_Data!) @auth(level: USER) {
+  event_insert(data: $data)
+}
+
+query ListEvents @auth(level: USER) {
+  events {
+    title
+    dateTime
+    location
+    family {
+      name
+    }
+  }
+}
+
+mutation UpdateEvent($id: UUID!, $data: Event_Data!) @auth(level: USER) {
+  event_update(id: $id, data: $data)
+}
+
+mutation DeleteEvent($id: UUID!) @auth(level: USER) {
+  event_delete(id: $id)
+}

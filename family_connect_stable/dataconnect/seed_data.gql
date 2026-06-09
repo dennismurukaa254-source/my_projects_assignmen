@@ -1,0 +1,37 @@
+mutation CreateDemoData @transaction {
+  family_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      name: "Smith Family",
+      createdAt: "2023-10-01T00:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      name: "Doe Family",
+      createdAt: "2023-10-02T00:00:00Z"
+    }
+  ])
+  user_insertMany(data: [
+    {
+      id: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      displayName: "John Smith",
+      email: "john@smith.com",
+      familyId: "550e8400-e29b-41d4-a716-446655440000"
+    },
+    {
+      id: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12",
+      displayName: "Jane Doe",
+      email: "jane@doe.com",
+      familyId: "550e8400-e29b-41d4-a716-446655440001"
+    }
+  ])
+  event_insertMany(data: [
+    {
+      id: "b1eebc99-9c0b-4ef8-bb6d-6bb9bd380b22",
+      title: "Family Picnic",
+      dateTime: "2023-11-01T12:00:00Z",
+      location: "Central Park",
+      familyId: "550e8400-e29b-41d4-a716-446655440000"
+    }
+  ])
+}
